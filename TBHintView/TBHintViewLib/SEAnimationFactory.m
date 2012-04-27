@@ -686,7 +686,10 @@ NSString* const kSEAnimationMoveTo = @"kSEAnimationMoveTo";
 		
 		if( [animationDelegate respondsToSelector:startSelector] )
 		{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 			[animationDelegate performSelector:startSelector withObject:anim withObject:view];
+#pragma clang diagnostic pop
 		}
 	}
 }
@@ -714,7 +717,10 @@ NSString* const kSEAnimationMoveTo = @"kSEAnimationMoveTo";
 		
 		if( [animationDelegate respondsToSelector:stopSelector] )
 		{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 			[animationDelegate performSelector:stopSelector withObject:anim withObject:view];
+#pragma clang diagnostic pop
 		}
 	}
 }

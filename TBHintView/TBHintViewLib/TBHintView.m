@@ -13,12 +13,12 @@
 
 @interface TBHintView()
 
-@property (nonatomic,retain) UIImageView* imageViewTitleIcon;
-@property (nonatomic,retain) UILabel* labelTitle;
-@property (nonatomic,retain) UIButton* buttonDismiss;
-@property (nonatomic,retain) UIPageControl* pageControl;
-@property (nonatomic,retain) UIScrollView* scrollViewPages;
-@property (nonatomic,retain) NSTimer* dismissTimer;
+@property (nonatomic) UIImageView* imageViewTitleIcon;
+@property (nonatomic) UILabel* labelTitle;
+@property (nonatomic) UIButton* buttonDismiss;
+@property (nonatomic) UIPageControl* pageControl;
+@property (nonatomic) UIScrollView* scrollViewPages;
+@property (nonatomic) NSTimer* dismissTimer;
 @property (atomic,assign) BOOL isDismissing;
 
 @end
@@ -66,14 +66,7 @@
     self.dataSource = nil;
     self.delegate = nil;
     
-    [imageViewTitleIcon release];
-    [labelTitle release];
-    [buttonDismiss release];
-    [pageControl release];
-    [scrollViewPages release];
-    [dismissTimer release];
     
-    [super dealloc];
 }
 
 
@@ -287,7 +280,7 @@
         CGRect outerFrame = self.superview.frame;
         outerFrame.size.height += 10;
         
-        UIView* temp = [[[UIView alloc] initWithFrame:outerFrame] autorelease];
+        UIView* temp = [[UIView alloc] initWithFrame:outerFrame];
         
         if( self.presentationAnimation == kHintViewPresentationSlide )
         {
@@ -320,7 +313,7 @@
         CGRect outerFrame = self.superview.frame;
         outerFrame.size.height -= 10;
         
-        UIView* temp = [[[UIView alloc] initWithFrame:outerFrame] autorelease];
+        UIView* temp = [[UIView alloc] initWithFrame:outerFrame];
         
         if( self.presentationAnimation == kHintViewPresentationSlide )
         {
@@ -442,13 +435,13 @@
             
             if( pageContent )
             {
-                UILabel* labelText = [[[UILabel alloc] initWithFrame:CGRectMake( 
+                UILabel* labelText = [[UILabel alloc] initWithFrame:CGRectMake( 
                                                                                 page * self.scrollViewPages.bounds.size.width + 5, 
                                                                                 0, 
                                                                                 self.scrollViewPages.bounds.size.width - 10, 
                                                                                 self.scrollViewPages.bounds.size.height - scrollIndicatorOffset
                                                                                 )
-                                       ] autorelease];
+                                       ];
                 
                 labelText.numberOfLines = 0;
                 labelText.textAlignment = UITextAlignmentCenter;
@@ -469,13 +462,13 @@
             
             if( pageContent )
             {
-                UIImageView* imageViewPage = [[[UIImageView alloc] initWithFrame:CGRectMake( 
+                UIImageView* imageViewPage = [[UIImageView alloc] initWithFrame:CGRectMake( 
                                                                                             page * self.scrollViewPages.bounds.size.width + 5, 
                                                                                             0, 
                                                                                             self.scrollViewPages.bounds.size.width - 10, 
                                                                                             self.scrollViewPages.bounds.size.height - scrollIndicatorOffset
                                                                                             )
-                                               ] autorelease];
+                                               ];
                 
                 imageViewPage.image = pageContent;
                 imageViewPage.contentMode = UIViewContentModeCenter;

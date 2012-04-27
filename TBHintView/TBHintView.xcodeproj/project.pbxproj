@@ -216,6 +216,7 @@
 					armv6,
 					armv7,
 				);
+				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/TBHintViewLib.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TBHintViewLib/TBHintView-Prefix.pch";
@@ -235,6 +236,7 @@
 					armv6,
 					armv7,
 				);
+				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/TBHintViewLib.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TBHintViewLib/TBHintView-Prefix.pch";
