@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EA4E91D4154A2E610055918D /* libTBHintView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA4E91D1154A2E3E0055918D /* libTBHintView.a */; };
+		EA4E91E1154B452B0055918D /* ViewController-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4E91DF154B452B0055918D /* ViewController-iPad.xib */; };
 		F85282941533531200F441FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F85282931533531200F441FE /* UIKit.framework */; };
 		F85282961533531200F441FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F85282951533531200F441FE /* Foundation.framework */; };
 		F85282981533531200F441FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F85282971533531200F441FE /* CoreGraphics.framework */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		EA4E91C9154A2E3E0055918D /* TBHintView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TBHintView.xcodeproj; path = TBHintView/TBHintView.xcodeproj; sourceTree = "<group>"; };
+		EA4E91E0154B452B0055918D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "en.lproj/ViewController-iPad.xib"; sourceTree = "<group>"; };
 		F852828F1533531200F441FE /* TBHintViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TBHintViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F85282931533531200F441FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F85282951533531200F441FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -123,6 +125,7 @@
 			children = (
 				F85283241533648100F441FE /* InfoPlist.strings */,
 				F85283261533648100F441FE /* ViewController.xib */,
+				EA4E91DF154B452B0055918D /* ViewController-iPad.xib */,
 				F85283061533603300F441FE /* AppDelegate.h */,
 				F85283071533603300F441FE /* AppDelegate.m */,
 				F85283081533603300F441FE /* DemoHintView.h */,
@@ -222,6 +225,7 @@
 				F85283281533648100F441FE /* InfoPlist.strings in Resources */,
 				F85283291533648100F441FE /* ViewController.xib in Resources */,
 				F85283311533675A00F441FE /* touchbee_small.png in Resources */,
+				EA4E91E1154B452B0055918D /* ViewController-iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +254,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		EA4E91DF154B452B0055918D /* ViewController-iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EA4E91E0154B452B0055918D /* en */,
+			);
+			name = "ViewController-iPad.xib";
+			sourceTree = "<group>";
+		};
 		F85283241533648100F441FE /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -320,8 +332,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TBHintViewDemo/TBHintViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "TBHintViewDemo/TBHintViewDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -332,8 +346,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TBHintViewDemo/TBHintViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "TBHintViewDemo/TBHintViewDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
