@@ -7,13 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA4E91D4154A2E610055918D /* libTBHintView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA4E91D1154A2E3E0055918D /* libTBHintView.a */; };
 		F85282941533531200F441FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F85282931533531200F441FE /* UIKit.framework */; };
 		F85282961533531200F441FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F85282951533531200F441FE /* Foundation.framework */; };
 		F85282981533531200F441FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F85282971533531200F441FE /* CoreGraphics.framework */; };
 		F85282CA1533580700F441FE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F85282C91533580700F441FE /* QuartzCore.framework */; };
-		F85283031533601F00F441FE /* SEAnimationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F85282FE1533601F00F441FE /* SEAnimationFactory.m */; };
-		F85283041533601F00F441FE /* TBHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = F85283001533601F00F441FE /* TBHintView.m */; };
-		F85283051533601F00F441FE /* UIView+SEAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = F85283021533601F00F441FE /* UIView+SEAnimations.m */; };
 		F852830C1533603400F441FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F85283071533603300F441FE /* AppDelegate.m */; };
 		F852830D1533603400F441FE /* DemoHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = F85283091533603300F441FE /* DemoHintView.m */; };
 		F852830E1533603400F441FE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F852830B1533603300F441FE /* ViewController.m */; };
@@ -26,18 +24,30 @@
 		F85283311533675A00F441FE /* touchbee_small.png in Resources */ = {isa = PBXBuildFile; fileRef = F85283301533675A00F441FE /* touchbee_small.png */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		EA4E91D0154A2E3E0055918D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EA4E91C9154A2E3E0055918D /* TBHintView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EA4E91A9154A2A170055918D;
+			remoteInfo = TBHintView;
+		};
+		EA4E91D2154A2E560055918D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EA4E91C9154A2E3E0055918D /* TBHintView.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EA4E91A8154A2A170055918D;
+			remoteInfo = TBHintView;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		EA4E91C9154A2E3E0055918D /* TBHintView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TBHintView.xcodeproj; path = TBHintView/TBHintView.xcodeproj; sourceTree = "<group>"; };
 		F852828F1533531200F441FE /* TBHintViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TBHintViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F85282931533531200F441FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F85282951533531200F441FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F85282971533531200F441FE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		F85282C91533580700F441FE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		F85282FD1533601F00F441FE /* SEAnimationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEAnimationFactory.h; sourceTree = "<group>"; };
-		F85282FE1533601F00F441FE /* SEAnimationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEAnimationFactory.m; sourceTree = "<group>"; };
-		F85282FF1533601F00F441FE /* TBHintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBHintView.h; sourceTree = "<group>"; };
-		F85283001533601F00F441FE /* TBHintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBHintView.m; sourceTree = "<group>"; };
-		F85283011533601F00F441FE /* UIView+SEAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SEAnimations.h"; sourceTree = "<group>"; };
-		F85283021533601F00F441FE /* UIView+SEAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SEAnimations.m"; sourceTree = "<group>"; };
 		F85283061533603300F441FE /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F85283071533603300F441FE /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F85283081533603300F441FE /* DemoHintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoHintView.h; sourceTree = "<group>"; };
@@ -60,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA4E91D4154A2E610055918D /* libTBHintView.a in Frameworks */,
 				F85282CA1533580700F441FE /* QuartzCore.framework in Frameworks */,
 				F85282941533531200F441FE /* UIKit.framework in Frameworks */,
 				F85282961533531200F441FE /* Foundation.framework in Frameworks */,
@@ -70,10 +81,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA4E91CA154A2E3E0055918D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EA4E91D1154A2E3E0055918D /* libTBHintView.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		F85282841533531200F441FE = {
 			isa = PBXGroup;
 			children = (
-				F85282B0153353B400F441FE /* TBHintView */,
+				EA4E91C9154A2E3E0055918D /* TBHintView.xcodeproj */,
 				F85282991533531200F441FE /* TBHintViewDemo */,
 				F85282921533531200F441FE /* Frameworks */,
 				F85282901533531200F441FE /* Products */,
@@ -129,19 +148,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F85282B0153353B400F441FE /* TBHintView */ = {
-			isa = PBXGroup;
-			children = (
-				F85282FD1533601F00F441FE /* SEAnimationFactory.h */,
-				F85282FE1533601F00F441FE /* SEAnimationFactory.m */,
-				F85282FF1533601F00F441FE /* TBHintView.h */,
-				F85283001533601F00F441FE /* TBHintView.m */,
-				F85283011533601F00F441FE /* UIView+SEAnimations.h */,
-				F85283021533601F00F441FE /* UIView+SEAnimations.m */,
-			);
-			path = TBHintView;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -156,6 +162,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				EA4E91D3154A2E560055918D /* PBXTargetDependency */,
 			);
 			name = TBHintViewDemo;
 			productName = TBHintViewDemo;
@@ -181,12 +188,28 @@
 			mainGroup = F85282841533531200F441FE;
 			productRefGroup = F85282901533531200F441FE /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = EA4E91CA154A2E3E0055918D /* Products */;
+					ProjectRef = EA4E91C9154A2E3E0055918D /* TBHintView.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				F852828E1533531200F441FE /* TBHintViewDemo */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		EA4E91D1154A2E3E0055918D /* libTBHintView.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libTBHintView.a;
+			remoteRef = EA4E91D0154A2E3E0055918D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F852828D1533531200F441FE /* Resources */ = {
@@ -209,9 +232,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F85283031533601F00F441FE /* SEAnimationFactory.m in Sources */,
-				F85283041533601F00F441FE /* TBHintView.m in Sources */,
-				F85283051533601F00F441FE /* UIView+SEAnimations.m in Sources */,
 				F852830C1533603400F441FE /* AppDelegate.m in Sources */,
 				F852830D1533603400F441FE /* DemoHintView.m in Sources */,
 				F852830E1533603400F441FE /* ViewController.m in Sources */,
@@ -220,6 +240,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EA4E91D3154A2E560055918D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TBHintView;
+			targetProxy = EA4E91D2154A2E560055918D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F85283241533648100F441FE /* InfoPlist.strings */ = {
@@ -262,6 +290,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "$(TBHINTVIEW_SRC)/TBHintViewLib";
 			};
 			name = Debug;
 		};
@@ -280,6 +309,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "$(TBHINTVIEW_SRC)/TBHintViewLib";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

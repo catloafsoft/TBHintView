@@ -1,0 +1,274 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EA4E91AD154A2A170055918D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA4E91AC154A2A170055918D /* Foundation.framework */; };
+		EA4E91BF154A2ACB0055918D /* SEAnimationFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = EA4E91B9154A2ACB0055918D /* SEAnimationFactory.h */; };
+		EA4E91C0154A2ACB0055918D /* SEAnimationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4E91BA154A2ACB0055918D /* SEAnimationFactory.m */; };
+		EA4E91C1154A2ACB0055918D /* TBHintView.h in Headers */ = {isa = PBXBuildFile; fileRef = EA4E91BB154A2ACB0055918D /* TBHintView.h */; };
+		EA4E91C2154A2ACB0055918D /* TBHintView.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4E91BC154A2ACB0055918D /* TBHintView.m */; };
+		EA4E91C3154A2ACB0055918D /* UIView+SEAnimations.h in Headers */ = {isa = PBXBuildFile; fileRef = EA4E91BD154A2ACB0055918D /* UIView+SEAnimations.h */; };
+		EA4E91C4154A2ACB0055918D /* UIView+SEAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = EA4E91BE154A2ACB0055918D /* UIView+SEAnimations.m */; };
+		EA4E91C6154A2AEE0055918D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA4E91C5154A2AEE0055918D /* CoreGraphics.framework */; };
+		EA4E91C8154A2B070055918D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA4E91C7154A2B070055918D /* QuartzCore.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EA4E91A9154A2A170055918D /* libTBHintView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTBHintView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA4E91AC154A2A170055918D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EA4E91B0154A2A170055918D /* TBHintView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TBHintView-Prefix.pch"; sourceTree = "<group>"; };
+		EA4E91B9154A2ACB0055918D /* SEAnimationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEAnimationFactory.h; sourceTree = "<group>"; };
+		EA4E91BA154A2ACB0055918D /* SEAnimationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEAnimationFactory.m; sourceTree = "<group>"; };
+		EA4E91BB154A2ACB0055918D /* TBHintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBHintView.h; sourceTree = "<group>"; };
+		EA4E91BC154A2ACB0055918D /* TBHintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBHintView.m; sourceTree = "<group>"; };
+		EA4E91BD154A2ACB0055918D /* UIView+SEAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SEAnimations.h"; sourceTree = "<group>"; };
+		EA4E91BE154A2ACB0055918D /* UIView+SEAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SEAnimations.m"; sourceTree = "<group>"; };
+		EA4E91C5154A2AEE0055918D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EA4E91C7154A2B070055918D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EA4E91A6154A2A170055918D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA4E91C8154A2B070055918D /* QuartzCore.framework in Frameworks */,
+				EA4E91C6154A2AEE0055918D /* CoreGraphics.framework in Frameworks */,
+				EA4E91AD154A2A170055918D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EA4E919E154A2A170055918D = {
+			isa = PBXGroup;
+			children = (
+				EA4E91AE154A2A170055918D /* TBHintView */,
+				EA4E91AB154A2A170055918D /* Frameworks */,
+				EA4E91AA154A2A170055918D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EA4E91AA154A2A170055918D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EA4E91A9154A2A170055918D /* libTBHintView.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EA4E91AB154A2A170055918D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EA4E91C7154A2B070055918D /* QuartzCore.framework */,
+				EA4E91C5154A2AEE0055918D /* CoreGraphics.framework */,
+				EA4E91AC154A2A170055918D /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EA4E91AE154A2A170055918D /* TBHintView */ = {
+			isa = PBXGroup;
+			children = (
+				EA4E91B9154A2ACB0055918D /* SEAnimationFactory.h */,
+				EA4E91BA154A2ACB0055918D /* SEAnimationFactory.m */,
+				EA4E91BB154A2ACB0055918D /* TBHintView.h */,
+				EA4E91BC154A2ACB0055918D /* TBHintView.m */,
+				EA4E91BD154A2ACB0055918D /* UIView+SEAnimations.h */,
+				EA4E91BE154A2ACB0055918D /* UIView+SEAnimations.m */,
+				EA4E91AF154A2A170055918D /* Supporting Files */,
+			);
+			name = TBHintView;
+			path = TBHintViewLib;
+			sourceTree = "<group>";
+		};
+		EA4E91AF154A2A170055918D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EA4E91B0154A2A170055918D /* TBHintView-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		EA4E91A7154A2A170055918D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA4E91BF154A2ACB0055918D /* SEAnimationFactory.h in Headers */,
+				EA4E91C1154A2ACB0055918D /* TBHintView.h in Headers */,
+				EA4E91C3154A2ACB0055918D /* UIView+SEAnimations.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		EA4E91A8154A2A170055918D /* TBHintView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA4E91B6154A2A170055918D /* Build configuration list for PBXNativeTarget "TBHintView" */;
+			buildPhases = (
+				EA4E91A5154A2A170055918D /* Sources */,
+				EA4E91A6154A2A170055918D /* Frameworks */,
+				EA4E91A7154A2A170055918D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TBHintView;
+			productName = TBHintViewLib;
+			productReference = EA4E91A9154A2A170055918D /* libTBHintView.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EA4E91A0154A2A170055918D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Catloaf Software, LLC";
+			};
+			buildConfigurationList = EA4E91A3154A2A170055918D /* Build configuration list for PBXProject "TBHintView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EA4E919E154A2A170055918D;
+			productRefGroup = EA4E91AA154A2A170055918D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EA4E91A8154A2A170055918D /* TBHintView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EA4E91A5154A2A170055918D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA4E91C0154A2ACB0055918D /* SEAnimationFactory.m in Sources */,
+				EA4E91C2154A2ACB0055918D /* TBHintView.m in Sources */,
+				EA4E91C4154A2ACB0055918D /* UIView+SEAnimations.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		EA4E91B4154A2A170055918D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		EA4E91B5154A2A170055918D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EA4E91B7154A2A170055918D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				DSTROOT = /tmp/TBHintViewLib.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TBHintViewLib/TBHintView-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EA4E91B8154A2A170055918D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				DSTROOT = /tmp/TBHintViewLib.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TBHintViewLib/TBHintView-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EA4E91A3154A2A170055918D /* Build configuration list for PBXProject "TBHintView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA4E91B4154A2A170055918D /* Debug */,
+				EA4E91B5154A2A170055918D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA4E91B6154A2A170055918D /* Build configuration list for PBXNativeTarget "TBHintView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA4E91B7154A2A170055918D /* Debug */,
+				EA4E91B8154A2A170055918D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EA4E91A0154A2A170055918D /* Project object */;
+}
