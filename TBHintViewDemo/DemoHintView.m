@@ -26,15 +26,6 @@
 @synthesize buttonAction;
 
 
--(void)dealloc
-{
-    self.buttonAction = nil;
-    
-    [text release];
-    [buttonText release];
-    
-    [super dealloc];
-}
 
 @end
 
@@ -45,8 +36,8 @@
 @property (nonatomic,copy) DemoHintViewBlock dismissedBlock;
 @property (nonatomic,copy) DemoHintViewBlock customDismissedBlock;
 
-@property (nonatomic,retain) NSMutableDictionary* pageContent;
-@property (nonatomic,retain) NSMutableDictionary* pageTitles;
+@property (nonatomic) NSMutableDictionary* pageContent;
+@property (nonatomic) NSMutableDictionary* pageTitles;
 
 @end
 
@@ -66,7 +57,7 @@
 
 +(DemoHintView*) infoHintView
 {
-    __block DemoHintView* basicHintView = [[[DemoHintView alloc] init] autorelease];
+    DemoHintView* basicHintView = [[DemoHintView alloc] init];
     
     basicHintView.hintView.textColor = [UIColor whiteColor];
     basicHintView.hintView.backgroundImage = [UIImage imageNamed:@"pattern2.jpg"];
@@ -87,7 +78,7 @@
 
 +(DemoHintView*) warningHintView
 {
-    __block DemoHintView* basicHintView = [[[DemoHintView alloc] init] autorelease];
+    DemoHintView* basicHintView = [[DemoHintView alloc] init];
     
     basicHintView.hintView.textColor = [UIColor whiteColor];
     basicHintView.hintView.backgroundColor = [UIColor colorWithRed:189.0/255.0 green:10/255.0 blue:5/255.0 alpha:0.9];
@@ -102,7 +93,7 @@
 
 +(DemoHintView*) otherHintView
 {
-    __block DemoHintView* basicHintView = [[[DemoHintView alloc] init] autorelease];
+    DemoHintView* basicHintView = [[DemoHintView alloc] init];
     
     basicHintView.hintView.textColor = [UIColor whiteColor];
     basicHintView.hintView.backgroundColor = [UIColor colorWithRed:89.0/255.0 green:119.0/255.0 blue:39.0/255.0 alpha:0.9];
@@ -121,7 +112,7 @@
     
     if( self )
     {
-        self.hintView = [[[TBHintView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)] autorelease];
+        self.hintView = [[TBHintView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
         
         self.hintView.dataSource = self;
         self.hintView.delegate = self;
@@ -134,19 +125,6 @@
 }
 
 
--(void)dealloc
-{
-    self.dismissedBlock = nil;
-    self.customDismissedBlock = nil;
-    
-    [hintView release];
-    [pageTitles release];
-    [pageContent release];
-    [title release]; 
-    [icon release];
-    
-    [super dealloc];
-}
 
 
 -(void) addPageWithTitle:(NSString*)title_ text:(NSString*)text_
@@ -189,7 +167,7 @@
     
     [self.pageTitles setObject:title_ forKey:pageNumber];
     
-    CustomHintViewInfo* customHintViewInfo = [[[CustomHintViewInfo alloc] init] autorelease];
+    CustomHintViewInfo* customHintViewInfo = [[CustomHintViewInfo alloc] init];
     
     customHintViewInfo.text = text;
     customHintViewInfo.buttonText = buttonText;
@@ -201,7 +179,7 @@
 
 -(void) addPageWithText:(NSString*)text buttonText:(NSString*)buttonText buttonAction:(DemoHintViewBlock)buttonAction
 {
-    CustomHintViewInfo* customHintViewInfo = [[[CustomHintViewInfo alloc] init] autorelease];
+    CustomHintViewInfo* customHintViewInfo = [[CustomHintViewInfo alloc] init];
     
     customHintViewInfo.text = text;
     customHintViewInfo.buttonText = buttonText;
@@ -229,7 +207,6 @@
     self.hintView.orientation = orientation_;
     
     // Keep self alive until dismissed
-    [self retain];
     
     [view addSubview:self.hintView];
     [view bringSubviewToFront:self.hintView];
@@ -249,7 +226,6 @@
     self.hintView.orientation = orientation_;
     
     // Keep self alive until dismissed
-    [self retain];
     
     [view addSubview:self.hintView];
     [view bringSubviewToFront:self.hintView];
@@ -270,7 +246,6 @@
     self.hintView.presentationAnimation = presentation;
     
     // Keep self alive until dismissed
-    [self retain];
     
     [view addSubview:self.hintView];
     [view bringSubviewToFront:self.hintView];
@@ -291,7 +266,6 @@
     self.hintView.presentationAnimation = presentation;
     
     // Keep self alive until dismissed
-    [self retain];
     
     [view addSubview:self.hintView];
     [view bringSubviewToFront:self.hintView];
@@ -355,11 +329,11 @@
     CustomHintViewInfo* customHintViewInfo = (CustomHintViewInfo*)content;
 
     // Build view
-    UIView* customView = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 100)] autorelease];
+    UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 100)];
     customView.userInteractionEnabled = YES;
     customView.backgroundColor = [UIColor clearColor];
     
-    UILabel* labelText = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 63)] autorelease];
+    UILabel* labelText = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 63)];
     labelText.backgroundColor = [UIColor clearColor];
     labelText.textColor = hintView_.textColor;
     labelText.numberOfLines = 0;
@@ -409,8 +383,6 @@
     {
         self.dismissedBlock();
     }
-    
-    [self autorelease];
 }
 
 

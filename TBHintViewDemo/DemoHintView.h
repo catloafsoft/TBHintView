@@ -26,7 +26,7 @@ typedef enum
 typedef void (^DemoHintViewBlock)();
 
 @property (nonatomic,copy) NSString* title;
-@property (nonatomic,retain) UIImage* icon;
+@property (nonatomic) UIImage* icon;
 @property (nonatomic,assign) NSUInteger maxHeight;
 @property (nonatomic,assign) HintID hintID;
 

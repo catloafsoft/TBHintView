@@ -329,6 +329,7 @@
 		F85282AE1533531200F441FE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TBHintViewDemo/TBHintViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "TBHintViewDemo/TBHintViewDemo-Info.plist";
@@ -343,6 +344,7 @@
 		F85282AF1533531200F441FE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TBHintViewDemo/TBHintViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "TBHintViewDemo/TBHintViewDemo-Info.plist";

@@ -48,7 +48,7 @@
         return;
     }
     
-    __block DemoHintView* hintView = [DemoHintView  infoHintView];
+    __unsafe_unretained DemoHintView* hintView = [DemoHintView  infoHintView];
     
     // Overwrites the pages titles
     //hintView.title = @"Welcome to the Demo!";
@@ -73,7 +73,7 @@
 
 -(IBAction) hint1
 {
-    __block DemoHintView* hintView = [DemoHintView  infoHintView];
+    __unsafe_unretained DemoHintView* hintView = [DemoHintView  infoHintView];
     
     // Overwrites the pages titles
     //hintView.title = @"Welcome to the Demo!";
@@ -98,7 +98,7 @@
 
 -(IBAction) hint2
 {
-    __block DemoHintView* hintView = [DemoHintView  infoHintView];
+    DemoHintView* hintView = [DemoHintView  infoHintView];
     
     // Overwrites the pages titles
     //hintView.title = @"Welcome to the Demo!";
@@ -113,7 +113,7 @@
 
 -(IBAction) hint3
 {
-    __block DemoHintView* hintView = [DemoHintView  warningHintView];
+    __unsafe_unretained DemoHintView* hintView = [DemoHintView  warningHintView];
     
     // Overwrites the pages titles
     hintView.title = @"Welcome to the Demo!";
@@ -138,7 +138,7 @@
 
 -(IBAction) hint4
 {
-    __block DemoHintView* hintView = [DemoHintView  warningHintView];
+    DemoHintView* hintView = [DemoHintView  warningHintView];
     
     // Overwrites the pages titles
     hintView.hintID = kHintID_Home;
@@ -151,7 +151,7 @@
 
 -(IBAction) hint5
 {
-    __block DemoHintView* hintView = [DemoHintView  otherHintView];
+    DemoHintView* hintView = [DemoHintView  otherHintView];
     
     // Overwrites the pages titles
     hintView.hintID = kHintID_Home;
