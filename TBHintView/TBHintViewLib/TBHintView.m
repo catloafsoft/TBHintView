@@ -16,6 +16,7 @@
 @property (nonatomic) UIImageView* imageViewTitleIcon;
 @property (nonatomic) UILabel* labelTitle;
 @property (nonatomic) UIButton* buttonDismiss;
+@property (nonatomic) UIImage *dismissImage;
 @property (nonatomic) UIPageControl* pageControl;
 @property (nonatomic) UIScrollView* scrollViewPages;
 @property (nonatomic) NSTimer* dismissTimer;
@@ -41,13 +42,13 @@
 @synthesize dismissTimer;
 @synthesize maximumHeight;
 @synthesize isDismissing;
+@synthesize dismissImage;
 
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithDismissImage:(UIImage *)image andFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    if (self) 
-    {
+    if (self) {
         self.clipsToBounds = YES;
         self.spanWidthWeight = 1.0f;
         self.layer.cornerRadius = 12.0;
@@ -55,9 +56,15 @@
         self.userInteractionEnabled = YES;
         self.presentationAnimation = kHintViewPresentationSlide;
         self.orientation = kHintViewOrientationBottom;
+        self.dismissImage = image;
     }
     
     return self;
+}
+
+- (id)initWithFrame:(CGRect)frame
+{
+    return [self initWithDismissImage:[UIImage imageNamed:@"60-x"] andFrame:frame];
 }
 
 
@@ -65,8 +72,6 @@
 {
     self.dataSource = nil;
     self.delegate = nil;
-    
-    
 }
 
 
@@ -171,7 +176,7 @@
         buttonDismiss = [[UIButton alloc] initWithFrame:CGRectMake( 286, 5 + yOffset, 32, 32)];
         buttonDismiss.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
         
-        [buttonDismiss setImage:[UIImage imageNamed:@"60-x"] forState:UIControlStateNormal];
+        [buttonDismiss setImage:self.dismissImage forState:UIControlStateNormal];
         [buttonDismiss addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
         
         [self addSubview:buttonDismiss];
