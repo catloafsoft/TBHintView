@@ -108,7 +108,7 @@
         imageViewTitleIcon.contentMode = UIViewContentModeScaleAspectFit;
         imageViewTitleIcon.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
         
-        if( self.dataSource && [self.dataSource respondsToSelector:@selector(titleIconForPage:hintView:)] )
+        if( [self.dataSource respondsToSelector:@selector(titleIconForPage:hintView:)] )
         {
             imageViewTitleIcon.image = [self.dataSource titleIconForPage:0 hintView:self];
         }
@@ -146,7 +146,7 @@
 		labelTitle.shadowOffset = CGSizeMake( 0, -1);
         labelTitle.numberOfLines = 1;
         
-        if( self.dataSource && [self.dataSource respondsToSelector:@selector(titleForPage:hintView:)] )
+        if( [self.dataSource respondsToSelector:@selector(titleForPage:hintView:)] )
         {
             labelTitle.text = [self.dataSource titleForPage:0 hintView:self];
         }
@@ -206,7 +206,9 @@
 
         pageControl.hidesForSinglePage = YES;
         
-        [pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
+        [pageControl addTarget:self
+                        action:@selector(changePage:) 
+              forControlEvents:UIControlEventValueChanged];
 
         [self addSubview:pageControl];
     }
@@ -248,7 +250,11 @@
 
 -(void) show:(NSTimeInterval)time
 {
-    self.dismissTimer = [NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(dismiss) userInfo:nil repeats:NO];
+    self.dismissTimer = [NSTimer scheduledTimerWithTimeInterval:time 
+                                                         target:self
+                                                       selector:@selector(dismiss)
+                                                       userInfo:nil
+                                                        repeats:NO];
     
     [self show];
 }
@@ -404,7 +410,12 @@
         }
         else if( self.presentationAnimation == kHintViewPresentationBounce )
         {
-            [self animationBounceOutWithDirection:kSEAnimationTop boundaryView:self.superview duration:0.3 delegate:self startSelector:nil stopSelector:@selector(dismissAnimationCompleted)];
+            [self animationBounceOutWithDirection:kSEAnimationTop
+                                     boundaryView:self.superview
+                                         duration:0.3 
+                                         delegate:self
+                                    startSelector:nil 
+                                     stopSelector:@selector(dismissAnimationCompleted)];
         }
     }
 }
@@ -412,7 +423,7 @@
 
 -(void) dismissAnimationCompleted
 {
-    if( self.delegate && [self.delegate respondsToSelector:@selector(dismissedHintView:)] )
+    if( [self.delegate respondsToSelector:@selector(dismissedHintView:)] )
     {
         [self.delegate dismissedHintView:self];
     }
@@ -434,7 +445,7 @@
     
     for( NSUInteger page = 0; page < numberOfPages; page++ )
     {
-        if( self.dataSource && [self.dataSource respondsToSelector:@selector(textForPage:hintView:)] )
+        if( [self.dataSource respondsToSelector:@selector(textForPage:hintView:)] )
         {
             NSString* pageContent = [self.dataSource textForPage:page hintView:self];
             
@@ -461,7 +472,7 @@
             }
         }
         
-        if( self.dataSource && [self.dataSource respondsToSelector:@selector(imageForPage:hintView:)] )
+        if( [self.dataSource respondsToSelector:@selector(imageForPage:hintView:)] )
         {
             UIImage* pageContent = [self.dataSource imageForPage:page hintView:self];
             
@@ -485,7 +496,7 @@
             }
         }
         
-        if( self.dataSource && [self.dataSource respondsToSelector:@selector(viewForPage:hintView:)] )
+        if( [self.dataSource respondsToSelector:@selector(viewForPage:hintView:)] )
         {
             UIView* pageContent = [self.dataSource viewForPage:page hintView:self];
             
@@ -524,13 +535,13 @@
     self.pageControl.currentPage = page;
     
     // Update title
-    if( self.dataSource && [self.dataSource respondsToSelector:@selector(titleForPage:hintView:)] )
+    if( [self.dataSource respondsToSelector:@selector(titleForPage:hintView:)] )
     {
         labelTitle.text = [self.dataSource titleForPage:page hintView:self];
     }
     
     // Update title icon
-    if( self.dataSource && [self.dataSource respondsToSelector:@selector(titleIconForPage:hintView:)] )
+    if( [self.dataSource respondsToSelector:@selector(titleIconForPage:hintView:)] )
     {
         self.imageViewTitleIcon.image = [self.dataSource titleIconForPage:page hintView:self];
     }
@@ -548,13 +559,13 @@
     self.scrollViewPages.contentOffset = CGPointMake( page * self.scrollViewPages.bounds.size.width, 0 );
     
     // Update title
-    if( self.dataSource && [self.dataSource respondsToSelector:@selector(titleForPage:hintView:)] )
+    if( [self.dataSource respondsToSelector:@selector(titleForPage:hintView:)] )
     {
         self.labelTitle.text = [self.dataSource titleForPage:page hintView:self];
     }
     
     // Update title icon
-    if( self.dataSource && [self.dataSource respondsToSelector:@selector(titleIconForPage:hintView:)] )
+    if( [self.dataSource respondsToSelector:@selector(titleIconForPage:hintView:)] )
     {
         self.imageViewTitleIcon.image = [self.dataSource titleIconForPage:page hintView:self];
     }
