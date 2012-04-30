@@ -66,6 +66,8 @@ typedef enum
 -(NSString*) textForPage:(NSUInteger)page hintView:(TBHintView*)hintView;
 -(UIImage*) imageForPage:(NSUInteger)page hintView:(TBHintView*)hintView;
 
+-(UIButton*) buttonForPage:(NSUInteger)page hintView:(TBHintView*)hintView;
+
 -(NSString*) titleForPage:(NSUInteger)page hintView:(TBHintView*)hintView;
 -(UIImage*) titleIconForPage:(NSUInteger)page hintView:(TBHintView*)hintView;
 

@@ -441,61 +441,11 @@
     
     CGFloat scrollIndicatorOffset = 8.0f;
     
-    self.scrollViewPages.contentSize = CGSizeMake( self.scrollViewPages.bounds.size.width * numberOfPages, self.scrollViewPages.bounds.size.height - scrollIndicatorOffset );
+    self.scrollViewPages.contentSize = CGSizeMake(self.scrollViewPages.bounds.size.width * numberOfPages, 
+                                                  self.scrollViewPages.bounds.size.height - scrollIndicatorOffset);
     
     for( NSUInteger page = 0; page < numberOfPages; page++ )
     {
-        if( [self.dataSource respondsToSelector:@selector(textForPage:hintView:)] )
-        {
-            NSString* pageContent = [self.dataSource textForPage:page hintView:self];
-            
-            if( pageContent )
-            {
-                UILabel* labelText = [[UILabel alloc] initWithFrame:CGRectMake( 
-                                                                                page * self.scrollViewPages.bounds.size.width + 5, 
-                                                                                0, 
-                                                                                self.scrollViewPages.bounds.size.width - 10, 
-                                                                                self.scrollViewPages.bounds.size.height - scrollIndicatorOffset
-                                                                                )
-                                       ];
-                
-                labelText.numberOfLines = 0;
-                labelText.textAlignment = UITextAlignmentCenter;
-                labelText.text = pageContent;
-                labelText.textColor = self.textColor;
-                labelText.backgroundColor = [UIColor clearColor];
-                labelText.font = [UIFont systemFontOfSize:15.0f];
-                
-                [self.scrollViewPages addSubview:labelText];
-                
-                continue;
-            }
-        }
-        
-        if( [self.dataSource respondsToSelector:@selector(imageForPage:hintView:)] )
-        {
-            UIImage* pageContent = [self.dataSource imageForPage:page hintView:self];
-            
-            if( pageContent )
-            {
-                UIImageView* imageViewPage = [[UIImageView alloc] initWithFrame:CGRectMake( 
-                                                                                            page * self.scrollViewPages.bounds.size.width + 5, 
-                                                                                            0, 
-                                                                                            self.scrollViewPages.bounds.size.width - 10, 
-                                                                                            self.scrollViewPages.bounds.size.height - scrollIndicatorOffset
-                                                                                            )
-                                               ];
-                
-                imageViewPage.image = pageContent;
-                imageViewPage.contentMode = UIViewContentModeCenter;
-                imageViewPage.backgroundColor = [UIColor clearColor];
-                
-                [self.scrollViewPages addSubview:imageViewPage];
-                
-                continue;
-            }
-        }
-        
         if( [self.dataSource respondsToSelector:@selector(viewForPage:hintView:)] )
         {
             UIView* pageContent = [self.dataSource viewForPage:page hintView:self];
@@ -513,7 +463,78 @@
                 continue;
             }
         }
+        
+        // Fetch the page components from the delegate
+        
+        UIImage* imageContent = nil;
+        NSString* textContent = nil;
+        UIButton *buttonContent = nil;
+        
+        if( [self.dataSource respondsToSelector:@selector(imageForPage:hintView:)] )
+        {
+            imageContent = [self.dataSource imageForPage:page hintView:self];
+        }
+        
+        if( [self.dataSource respondsToSelector:@selector(textForPage:hintView:)] )
+        {
+            textContent = [self.dataSource textForPage:page hintView:self];
+        }
+        
+        if( [self.dataSource respondsToSelector:@selector(buttonForPage:hintView:)] )
+        {
+            buttonContent = [self.dataSource buttonForPage:page hintView:self];
+        }
 
+        CGFloat pageHeight = self.scrollViewPages.bounds.size.height - scrollIndicatorOffset;
+
+        if (buttonContent) { // Leave some room for a button under the content
+            pageHeight -= 24;    
+        }
+        
+        if( imageContent )
+        {
+            UIImageView* imageViewPage = [[UIImageView alloc] initWithFrame:CGRectMake( 
+                                                                                       page * self.scrollViewPages.bounds.size.width + 5, 
+                                                                                       0, 
+                                                                                       self.scrollViewPages.bounds.size.width - 10, 
+                                                                                       pageHeight)
+                                          ];
+            
+            imageViewPage.image = imageContent;
+            imageViewPage.contentMode = UIViewContentModeCenter;
+            imageViewPage.backgroundColor = [UIColor clearColor];
+            
+            [self.scrollViewPages addSubview:imageViewPage];
+        }
+                
+        if( textContent )
+        {
+            UILabel* labelText = [[UILabel alloc] initWithFrame:CGRectMake( 
+                                                                           page * self.scrollViewPages.bounds.size.width + 5, 
+                                                                           0, 
+                                                                           self.scrollViewPages.bounds.size.width - 10, 
+                                                                           pageHeight)
+                                                                           ];
+            
+            labelText.numberOfLines = 0;
+            labelText.textAlignment = UITextAlignmentCenter;
+            labelText.text = textContent;
+            labelText.textColor = self.textColor;
+            labelText.backgroundColor = [UIColor clearColor];
+            labelText.font = [UIFont systemFontOfSize:15.0f];
+            
+            [self.scrollViewPages addSubview:labelText];
+        }
+
+        if (buttonContent) {
+            CGFloat buttonWidth = self.scrollViewPages.bounds.size.width * 0.7f;
+            
+            buttonContent.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+            buttonContent.frame = CGRectMake((self.scrollViewPages.bounds.size.width - buttonWidth)/2.0f, pageHeight, 
+                                             buttonWidth, 24);
+            [self.scrollViewPages addSubview:buttonContent];
+        }
+    
     }
     
     if( numberOfPages > 1 )
