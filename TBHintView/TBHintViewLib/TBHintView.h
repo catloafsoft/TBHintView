@@ -42,7 +42,7 @@ typedef enum
 @property (nonatomic,assign) TBHintViewOrientation orientation;
 @property (nonatomic,assign) CGFloat maximumHeight;
 
-- (id)initWithDismissImage:(UIImage *)image andFrame:(CGRect)frame;
+- (id)initWithDismissImage:(UIImage *)image;
 
 -(void) show;
 -(void) show:(NSTimeInterval)duration;

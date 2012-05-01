@@ -22,6 +22,8 @@
 @property (nonatomic) NSTimer* dismissTimer;
 @property (atomic,assign) BOOL isDismissing;
 
+- (void)setRotation;
+
 @end
 
 
@@ -45,9 +47,9 @@
 @synthesize dismissImage;
 
 
-- (id)initWithDismissImage:(UIImage *)image andFrame:(CGRect)frame
+- (id)initWithDismissImage:(UIImage *)image
 {
-    self = [super initWithFrame:frame];
+    self = [super initWithFrame:CGRectMake( 0, 0, 320, 180)];
     if (self) {
         self.clipsToBounds = YES;
         self.spanWidthWeight = 1.0f;
@@ -57,14 +59,15 @@
         self.presentationAnimation = kHintViewPresentationSlide;
         self.orientation = kHintViewOrientationBottom;
         self.dismissImage = image;
+        [self setRotation];
     }
     
     return self;
 }
 
-- (id)initWithFrame:(CGRect)frame
+- (id)init
 {
-    return [self initWithDismissImage:[UIImage imageNamed:@"60-x"] andFrame:frame];
+    return [self initWithDismissImage:[UIImage imageNamed:@"60-x"]];
 }
 
 
@@ -82,6 +85,24 @@
     self.buttonDismiss.hidden = NO;
     self.pageControl.hidden = NO;
     self.scrollViewPages.hidden = NO;
+}
+
+- (void)setRotation
+{
+    switch ([UIApplication sharedApplication].statusBarOrientation) {
+        case UIInterfaceOrientationPortrait:
+            self.transform = CGAffineTransformIdentity;
+            break;
+        case UIInterfaceOrientationPortraitUpsideDown:
+            self.transform = CGAffineTransformMakeRotation(M_PI);
+            break;
+        case UIInterfaceOrientationLandscapeRight:
+            self.transform = CGAffineTransformMakeRotation(M_PI_2);
+            break;
+        case UIInterfaceOrientationLandscapeLeft:
+            self.transform = CGAffineTransformMakeRotation(M_PI_2 + M_PI);
+            break;
+    }
 }
 
 
@@ -142,8 +163,8 @@
 		labelTitle.adjustsFontSizeToFitWidth = YES;
 		labelTitle.textAlignment = UITextAlignmentLeft;
         labelTitle.font = [UIFont boldSystemFontOfSize:17.0];
-		labelTitle.shadowColor = [UIColor blackColor];
-		labelTitle.shadowOffset = CGSizeMake( 0, -1);
+		labelTitle.shadowColor = [UIColor darkGrayColor];
+		labelTitle.shadowOffset = CGSizeMake(0, -1);
         labelTitle.numberOfLines = 1;
         
         if( [self.dataSource respondsToSelector:@selector(titleForPage:hintView:)] )
@@ -232,7 +253,11 @@
             yOffset = 0.0f;
         }
         
-        scrollViewPages = [[UIScrollView alloc] initWithFrame:CGRectMake( 4, 33 + yOffset, 312, 128 )];
+        if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
+            scrollViewPages = [[UIScrollView alloc] initWithFrame:CGRectMake( 33 + yOffset, 4, 128, 312 )];
+        } else {
+            scrollViewPages = [[UIScrollView alloc] initWithFrame:CGRectMake( 4, 33 + yOffset, 312, 128 )];
+        }
         scrollViewPages.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         
         scrollViewPages.backgroundColor = [UIColor clearColor];
@@ -265,7 +290,7 @@
     CGRect oldFrame = self.frame;
     
     // Initialization code
-    self.frame = CGRectMake( 0, 0, 320, 200 );
+    self.frame = CGRectMake( 0, 0, 320, 180 );
     
     [self createSubviews];
     
@@ -437,9 +462,14 @@
     NSUInteger numberOfPages = [self.dataSource numberOfPagesInHintView:self];
     self.pageControl.numberOfPages = numberOfPages;
     
-    self.scrollViewPages.pagingEnabled = YES;
-    
-    CGFloat scrollIndicatorOffset = 8.0f;
+    CGFloat scrollIndicatorOffset;
+    if (numberOfPages > 1) {
+        self.scrollViewPages.pagingEnabled = YES;
+        scrollIndicatorOffset = 8.0f;
+    } else { // Only one page
+        self.scrollViewPages.pagingEnabled = NO;
+        scrollIndicatorOffset = 0.0f;        
+    }
     
     self.scrollViewPages.contentSize = CGSizeMake(self.scrollViewPages.bounds.size.width * numberOfPages, 
                                                   self.scrollViewPages.bounds.size.height - scrollIndicatorOffset);
@@ -488,7 +518,7 @@
         CGFloat pageHeight = self.scrollViewPages.bounds.size.height - scrollIndicatorOffset;
 
         if (buttonContent) { // Leave some room for a button under the content
-            pageHeight -= 24;    
+            pageHeight -= 29;    
         }
         
         if( imageContent )
@@ -528,10 +558,11 @@
 
         if (buttonContent) {
             CGFloat buttonWidth = self.scrollViewPages.bounds.size.width * 0.7f;
-            
+
+            buttonContent.contentMode = UIViewContentModeCenter;
             buttonContent.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
             buttonContent.frame = CGRectMake((self.scrollViewPages.bounds.size.width - buttonWidth)/2.0f, pageHeight, 
-                                             buttonWidth, 24);
+                                             buttonWidth, 29);
             [self.scrollViewPages addSubview:buttonContent];
         }
     
@@ -547,10 +578,12 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     NSInteger page = self.scrollViewPages.contentOffset.x / self.scrollViewPages.bounds.size.width;
-    if( page < 0 ) page = 0;
+    if( page < 0 ) 
+        page = 0;
     
     NSUInteger numberOfPages = [self.dataSource numberOfPagesInHintView:self];
-    if( page >= numberOfPages ) page = numberOfPages - 1;
+    if( page >= numberOfPages )
+        page = numberOfPages - 1;
     
     // Update page control
     self.pageControl.currentPage = page;

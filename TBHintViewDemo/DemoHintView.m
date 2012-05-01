@@ -112,7 +112,7 @@
     
     if( self )
     {
-        self.hintView = [[TBHintView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+        self.hintView = [[TBHintView alloc] init];
         
         self.hintView.dataSource = self;
         self.hintView.delegate = self;
