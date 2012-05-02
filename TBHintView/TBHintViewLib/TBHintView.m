@@ -22,8 +22,6 @@
 @property (nonatomic) NSTimer* dismissTimer;
 @property (atomic,assign) BOOL isDismissing;
 
-- (void)setRotation;
-
 @end
 
 
@@ -59,7 +57,6 @@
         self.presentationAnimation = kHintViewPresentationSlide;
         self.orientation = kHintViewOrientationBottom;
         self.dismissImage = image;
-        [self setRotation];
     }
     
     return self;
@@ -87,25 +84,6 @@
     self.scrollViewPages.hidden = NO;
 }
 
-- (void)setRotation
-{
-    switch ([UIApplication sharedApplication].statusBarOrientation) {
-        case UIInterfaceOrientationPortrait:
-            self.transform = CGAffineTransformIdentity;
-            break;
-        case UIInterfaceOrientationPortraitUpsideDown:
-            self.transform = CGAffineTransformMakeRotation(M_PI);
-            break;
-        case UIInterfaceOrientationLandscapeRight:
-            self.transform = CGAffineTransformMakeRotation(M_PI_2);
-            break;
-        case UIInterfaceOrientationLandscapeLeft:
-            self.transform = CGAffineTransformMakeRotation(M_PI_2 + M_PI);
-            break;
-    }
-}
-
-
 #pragma mark - Getters
 
 -(UIImageView *)imageViewTitleIcon
@@ -123,7 +101,7 @@
             yOffset = 0.0f;
         }
         
-        imageViewTitleIcon = [[UIImageView alloc] initWithFrame:CGRectMake( 8, 10 + yOffset, 20, 20)];
+        imageViewTitleIcon = [[UIImageView alloc] initWithFrame:CGRectMake(8, 10 + yOffset, 20, 20)];
 		imageViewTitleIcon.backgroundColor = [UIColor clearColor];
 
         imageViewTitleIcon.contentMode = UIViewContentModeScaleAspectFit;
@@ -253,11 +231,7 @@
             yOffset = 0.0f;
         }
         
-        if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
-            scrollViewPages = [[UIScrollView alloc] initWithFrame:CGRectMake( 33 + yOffset, 4, 128, 312 )];
-        } else {
-            scrollViewPages = [[UIScrollView alloc] initWithFrame:CGRectMake( 4, 33 + yOffset, 312, 128 )];
-        }
+        scrollViewPages = [[UIScrollView alloc] initWithFrame:CGRectMake( 4, 33 + yOffset, 312, 128 )];
         scrollViewPages.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         
         scrollViewPages.backgroundColor = [UIColor clearColor];
