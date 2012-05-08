@@ -473,6 +473,7 @@
         UIImage* imageContent = nil;
         NSString* textContent = nil;
         UIButton *buttonContent = nil;
+        CGSize buttonSize = CGSizeMake(self.scrollViewPages.bounds.size.width * 0.7f, 29.0f);
         
         if( [self.dataSource respondsToSelector:@selector(imageForPage:hintView:)] )
         {
@@ -489,10 +490,14 @@
             buttonContent = [self.dataSource buttonForPage:page hintView:self];
         }
 
+        if ([self.dataSource respondsToSelector:@selector(buttonSizeForPage:hintView:)]) {
+            buttonSize = [self.dataSource buttonSizeForPage:page hintView:self];
+        }
+        
         CGFloat pageHeight = self.scrollViewPages.bounds.size.height - scrollIndicatorOffset;
 
         if (buttonContent) { // Leave some room for a button under the content
-            pageHeight -= 29;    
+            pageHeight -= buttonSize.height;    
         }
         
         if( imageContent )
@@ -531,12 +536,10 @@
         }
 
         if (buttonContent) {
-            CGFloat buttonWidth = self.scrollViewPages.bounds.size.width * 0.7f;
-
             buttonContent.contentMode = UIViewContentModeCenter;
             buttonContent.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-            buttonContent.frame = CGRectMake((self.scrollViewPages.bounds.size.width - buttonWidth)/2.0f, pageHeight, 
-                                             buttonWidth, 29);
+            buttonContent.frame = CGRectMake((self.scrollViewPages.bounds.size.width - buttonSize.width)/2.0f, pageHeight, 
+                                             buttonSize.width, buttonSize.height);
             [self.scrollViewPages addSubview:buttonContent];
         }
     
