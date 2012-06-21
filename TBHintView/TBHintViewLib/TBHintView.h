@@ -41,6 +41,7 @@ typedef enum
 @property (nonatomic,assign) TBHintViewPresentationAnimation presentationAnimation;
 @property (nonatomic,assign) TBHintViewOrientation orientation;
 @property (nonatomic,assign) CGFloat maximumHeight;
+@property (nonatomic,assign) UITextAlignment titleAlignment;
 
 - (id)initWithDismissImage:(UIImage *)image;
 
@@ -65,6 +66,9 @@ typedef enum
 -(UIView*) viewForPage:(NSUInteger)page hintView:(TBHintView*)hintView;
 -(NSString*) textForPage:(NSUInteger)page hintView:(TBHintView*)hintView;
 -(UIImage*) imageForPage:(NSUInteger)page hintView:(TBHintView*)hintView;
+
+// Get the font used to render the text on the page (only used if textForPage is implemented)
+- (UIFont *) fontForPage:(NSUInteger)page hintView:(TBHintView *)hintView;
 
 -(UIButton*) buttonForPage:(NSUInteger)page hintView:(TBHintView*)hintView;
 -(CGSize) buttonSizeForPage:(NSUInteger)page hintView:(TBHintView*)hintView;

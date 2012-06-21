@@ -43,7 +43,7 @@
 @synthesize maximumHeight;
 @synthesize isDismissing;
 @synthesize dismissImage;
-
+@synthesize titleAlignment;
 
 - (id)initWithDismissImage:(UIImage *)image
 {
@@ -57,6 +57,7 @@
         self.presentationAnimation = kHintViewPresentationSlide;
         self.orientation = kHintViewOrientationBottom;
         self.dismissImage = image;
+        self.titleAlignment = UITextAlignmentLeft;
     }
     
     return self;
@@ -139,7 +140,7 @@
         
 		labelTitle.backgroundColor = [UIColor clearColor];
 		labelTitle.adjustsFontSizeToFitWidth = YES;
-		labelTitle.textAlignment = UITextAlignmentLeft;
+		labelTitle.textAlignment = self.titleAlignment;
         labelTitle.font = [UIFont boldSystemFontOfSize:17.0];
 		labelTitle.shadowColor = [UIColor darkGrayColor];
 		labelTitle.shadowOffset = CGSizeMake(0, -1);
@@ -530,7 +531,12 @@
             labelText.text = textContent;
             labelText.textColor = self.textColor;
             labelText.backgroundColor = [UIColor clearColor];
-            labelText.font = [UIFont systemFontOfSize:15.0f];
+            labelText.adjustsFontSizeToFitWidth = YES;
+            if ([self.dataSource respondsToSelector:@selector(fontForPage:hintView:)]) {
+                labelText.font = [self.dataSource fontForPage:page hintView:self];
+            } else {
+                labelText.font = [UIFont systemFontOfSize:15.0f];
+            }
             
             [self.scrollViewPages addSubview:labelText];
         }
