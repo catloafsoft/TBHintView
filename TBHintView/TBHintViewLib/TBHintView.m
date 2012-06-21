@@ -35,7 +35,7 @@
 @synthesize pageControl;
 @synthesize scrollViewPages;
 @synthesize backgroundImage;
-@synthesize textColor;
+@synthesize textColor, titleColor;
 @synthesize spanWidthWeight;
 @synthesize presentationAnimation;
 @synthesize orientation;
@@ -44,6 +44,7 @@
 @synthesize isDismissing;
 @synthesize dismissImage;
 @synthesize titleAlignment;
+@synthesize titleFont;
 
 - (id)initWithDismissImage:(UIImage *)image
 {
@@ -58,6 +59,8 @@
         self.orientation = kHintViewOrientationBottom;
         self.dismissImage = image;
         self.titleAlignment = UITextAlignmentLeft;
+        self.titleColor = [UIColor whiteColor];
+        self.titleFont = [UIFont boldSystemFontOfSize:17.0];
     }
     
     return self;
@@ -141,7 +144,8 @@
 		labelTitle.backgroundColor = [UIColor clearColor];
 		labelTitle.adjustsFontSizeToFitWidth = YES;
 		labelTitle.textAlignment = self.titleAlignment;
-        labelTitle.font = [UIFont boldSystemFontOfSize:17.0];
+        labelTitle.font = self.titleFont;
+        labelTitle.textColor = self.titleColor;
 		labelTitle.shadowColor = [UIColor darkGrayColor];
 		labelTitle.shadowOffset = CGSizeMake(0, -1);
         labelTitle.numberOfLines = 1;
@@ -274,10 +278,7 @@
     CGRect parentFrame = self.superview.bounds;
     
     CGFloat height = self.maximumHeight;
- 
-    self.labelTitle.textColor = self.textColor;
-
-    
+     
     CGFloat width = parentFrame.size.width * spanWidthWeight;
     CGFloat margin = ( parentFrame.size.width - width ) / 2.0f;
     

@@ -30,13 +30,14 @@ typedef enum
 @protocol TBHintViewDataSource;
 @protocol TBHintViewDelegate;
 
-@interface TBHintView : UIView<UIScrollViewDelegate>
+@interface TBHintView : UIView <UIScrollViewDelegate>
 
 @property (nonatomic,unsafe_unretained) id<TBHintViewDataSource> dataSource;
 @property (nonatomic,strong) id<TBHintViewDelegate> delegate;
 
 @property (nonatomic,copy) UIImage* backgroundImage;
-@property (nonatomic,copy) UIColor* textColor;
+@property (nonatomic,copy) UIColor *textColor, *titleColor;
+@property (nonatomic,strong) UIFont *titleFont;
 @property (nonatomic,assign) CGFloat spanWidthWeight; // Width weight between 0.01f and 1.0f
 @property (nonatomic,assign) TBHintViewPresentationAnimation presentationAnimation;
 @property (nonatomic,assign) TBHintViewOrientation orientation;
