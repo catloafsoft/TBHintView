@@ -251,6 +251,24 @@
     return scrollViewPages;
 }
 
+-(void)setRotation
+{
+    UIInterfaceOrientation sbOrientation = [UIApplication sharedApplication].statusBarOrientation;
+    switch (sbOrientation) {
+        case UIInterfaceOrientationPortrait:
+            self.transform = CGAffineTransformIdentity;
+            break;
+        case UIInterfaceOrientationPortraitUpsideDown:
+            self.transform = CGAffineTransformMakeRotation(M_PI);
+            break;
+        case UIInterfaceOrientationLandscapeRight:
+            self.transform = CGAffineTransformMakeRotation(M_PI_2);
+            break;
+        case UIInterfaceOrientationLandscapeLeft:
+            self.transform = CGAffineTransformMakeRotation(M_PI_2 + M_PI);
+            break;
+    }
+}
 
 -(void) show:(NSTimeInterval)time
 {
@@ -278,16 +296,32 @@
     CGRect parentFrame = self.superview.bounds;
     
     CGFloat height = self.maximumHeight;
-     
-    CGFloat width = parentFrame.size.width * spanWidthWeight;
-    CGFloat margin = ( parentFrame.size.width - width ) / 2.0f;
+    CGFloat width, margin;
+
+    BOOL isLandscape = UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation);
+    
+    if (isLandscape) {
+        width = parentFrame.size.height * spanWidthWeight;
+        margin = ( parentFrame.size.height - width ) / 2.0f;
+    } else {
+        width = parentFrame.size.width * spanWidthWeight;
+        margin = ( parentFrame.size.width - width ) / 2.0f;
+    }
+    [self setRotation];
     
     if( self.orientation == kHintViewOrientationBottom )
     {
-        self.frame = CGRectMake( margin, 
-                                parentFrame.origin.y + parentFrame.size.height - height + 10, 
-                                width, 
-                                height );
+        if (isLandscape) {
+            self.frame = CGRectMake(10,
+                                    margin,
+                                    height,
+                                    width);
+        } else {
+            self.frame = CGRectMake(margin,
+                                    parentFrame.origin.y + parentFrame.size.height - height + 10,
+                                    width,
+                                    height);
+        }
         
         CGRect outerFrame = self.superview.frame;
         outerFrame.size.height += 10;
@@ -317,10 +351,16 @@
     }
     else
     {
-        self.frame = CGRectMake( margin, 
-                                -10, 
-                                width, 
-                                height );
+        if (isLandscape) {
+            self.frame = CGRectMake(parentFrame.size.width - height - 10, margin,
+                                    height,
+                                    width);
+        } else {
+            self.frame = CGRectMake( margin,
+                                    -10,
+                                    width,
+                                    height );
+        }
         
         CGRect outerFrame = self.superview.frame;
         outerFrame.size.height -= 10;
