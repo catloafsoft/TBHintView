@@ -45,6 +45,7 @@
 @synthesize dismissImage;
 @synthesize titleAlignment;
 @synthesize titleFont;
+@synthesize handleLandscape;
 
 - (id)initWithDismissImage:(UIImage *)image
 {
@@ -298,7 +299,13 @@
     CGFloat height = self.maximumHeight;
     CGFloat width, margin;
 
-    BOOL isLandscape = UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation);
+    BOOL isLandscape;
+    
+    if (self.handleLandscape) {
+        isLandscape = UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation);
+    } else {
+        isLandscape = NO;
+    }
     
     if (isLandscape) {
         width = parentFrame.size.height * spanWidthWeight;
@@ -307,7 +314,8 @@
         width = parentFrame.size.width * spanWidthWeight;
         margin = ( parentFrame.size.width - width ) / 2.0f;
     }
-    [self setRotation];
+    if (self.handleLandscape)
+        [self setRotation];
     
     if( self.orientation == kHintViewOrientationBottom )
     {
