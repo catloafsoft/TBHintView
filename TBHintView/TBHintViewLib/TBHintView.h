@@ -32,7 +32,7 @@ typedef enum
 
 @interface TBHintView : UIView <UIScrollViewDelegate>
 
-@property (nonatomic,unsafe_unretained) id<TBHintViewDataSource> dataSource;
+@property (nonatomic,weak) id<TBHintViewDataSource> dataSource;
 @property (nonatomic,strong) id<TBHintViewDelegate> delegate;
 
 @property (nonatomic,copy) UIImage* backgroundImage;
