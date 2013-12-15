@@ -42,7 +42,7 @@ typedef enum
 @property (nonatomic,assign) TBHintViewPresentationAnimation presentationAnimation;
 @property (nonatomic,assign) TBHintViewOrientation orientation;
 @property (nonatomic,assign) CGFloat maximumHeight;
-@property (nonatomic,assign) UITextAlignment titleAlignment;
+@property (nonatomic,assign) NSTextAlignment titleAlignment;
 @property (nonatomic,assign) BOOL handleLandscape;
 
 - (id)initWithDismissImage:(UIImage *)image;
