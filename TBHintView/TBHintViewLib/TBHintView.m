@@ -576,9 +576,9 @@
             if (iconContent) {
                 roomForIcon = pageHeight;
                 
-                // Space it out with a 6 points border
-                UIImageView *iconView = [[UIImageView alloc] initWithFrame:CGRectMake(page * self.scrollViewPages.bounds.size.width + 5.0 + 6.0, 6.0,
-                                                                                      roomForIcon - 6.0, roomForIcon - 6.0)];
+                // Space it out with a 10 points border
+                UIImageView *iconView = [[UIImageView alloc] initWithFrame:CGRectMake(page * self.scrollViewPages.bounds.size.width + 10.0, 5.0,
+                                                                                      pageHeight - 10.0, pageHeight - 10.0)];
                 iconView.contentMode = UIViewContentModeScaleAspectFit;
                 iconView.backgroundColor = [UIColor clearColor];
                 iconView.image = iconContent;
