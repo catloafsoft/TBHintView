@@ -71,6 +71,8 @@ typedef enum
 
 // Get the font used to render the text on the page (only used if textForPage is implemented)
 - (UIFont *) fontForPage:(NSUInteger)page hintView:(TBHintView *)hintView;
+// Include a small square image on the side of the text
+-(UIImage *) iconForPage:(NSUInteger)page hintView:(TBHintView*)hintView;
 
 -(UIButton*) buttonForPage:(NSUInteger)page hintView:(TBHintView*)hintView;
 -(CGSize) buttonSizeForPage:(NSUInteger)page hintView:(TBHintView*)hintView;

@@ -148,7 +148,7 @@
         labelTitle.font = self.titleFont;
         labelTitle.textColor = self.titleColor;
 		labelTitle.shadowColor = [UIColor darkGrayColor];
-		labelTitle.shadowOffset = CGSizeMake(0, -1);
+		labelTitle.shadowOffset = CGSizeZero;
         labelTitle.numberOfLines = 1;
         
         if( [self.dataSource respondsToSelector:@selector(titleForPage:hintView:)] )
@@ -520,8 +520,8 @@
         
         // Fetch the page components from the delegate
         
-        UIImage* imageContent = nil;
-        NSString* textContent = nil;
+        UIImage *imageContent = nil, *iconContent = nil;
+        NSString *textContent = nil;
         UIButton *buttonContent = nil;
         CGSize buttonSize = CGSizeMake(self.scrollViewPages.bounds.size.width * 0.7f, 29.0f);
         
@@ -533,6 +533,10 @@
         if( [self.dataSource respondsToSelector:@selector(textForPage:hintView:)] )
         {
             textContent = [self.dataSource textForPage:page hintView:self];
+            
+            if ([self.dataSource respondsToSelector:@selector(iconForPage:hintView:)]) {
+                iconContent = [self.dataSource iconForPage:page hintView:self];
+            }
         }
         
         if( [self.dataSource respondsToSelector:@selector(buttonForPage:hintView:)] )
@@ -568,10 +572,23 @@
                 
         if( textContent )
         {
+            CGFloat roomForIcon = 0.0f;
+            if (iconContent) {
+                roomForIcon = pageHeight;
+                
+                // Space it out with a 6 points border
+                UIImageView *iconView = [[UIImageView alloc] initWithFrame:CGRectMake(page * self.scrollViewPages.bounds.size.width + 5.0 + 6.0, 6.0,
+                                                                                      roomForIcon - 6.0, roomForIcon - 6.0)];
+                iconView.contentMode = UIViewContentModeScaleAspectFit;
+                iconView.backgroundColor = [UIColor clearColor];
+                iconView.image = iconContent;
+                
+                [self.scrollViewPages addSubview:iconView];
+            }
             UILabel* labelText = [[UILabel alloc] initWithFrame:CGRectMake( 
-                                                                           page * self.scrollViewPages.bounds.size.width + 5, 
+                                                                           page * self.scrollViewPages.bounds.size.width + roomForIcon + 5.0,
                                                                            0, 
-                                                                           self.scrollViewPages.bounds.size.width - 10, 
+                                                                           self.scrollViewPages.bounds.size.width - roomForIcon - 10.0,
                                                                            pageHeight)
                                                                            ];
             
