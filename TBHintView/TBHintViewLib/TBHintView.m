@@ -257,7 +257,9 @@
     UIInterfaceOrientation sbOrientation = [UIApplication sharedApplication].statusBarOrientation;
     switch (sbOrientation) {
         case UIInterfaceOrientationPortrait:
+#ifdef __IPHONE_8_0
         case UIInterfaceOrientationUnknown:
+#endif
             self.transform = CGAffineTransformIdentity;
             break;
         case UIInterfaceOrientationPortraitUpsideDown:
