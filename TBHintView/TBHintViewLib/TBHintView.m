@@ -21,6 +21,7 @@
 @property (nonatomic) UIScrollView* scrollViewPages;
 @property (nonatomic) NSTimer* dismissTimer;
 @property (atomic,assign) BOOL isDismissing;
+@property (nonatomic) UIInterfaceOrientation currentOrientation;
 
 @end
 
@@ -62,6 +63,7 @@
         self.titleAlignment = UITextAlignmentLeft;
         self.titleColor = [UIColor whiteColor];
         self.titleFont = [UIFont boldSystemFontOfSize:17.0];
+        self.currentOrientation = [UIApplication sharedApplication].statusBarOrientation;
     }
     
     return self;
@@ -252,10 +254,14 @@
     return scrollViewPages;
 }
 
+- (void)setInterfaceOrientation:(UIInterfaceOrientation)sbOrientation
+{
+    self.currentOrientation = sbOrientation;
+}
+
 -(void)setRotation
 {
-    UIInterfaceOrientation sbOrientation = [UIApplication sharedApplication].statusBarOrientation;
-    switch (sbOrientation) {
+    switch (self.currentOrientation) {
         case UIInterfaceOrientationPortrait:
 #ifdef __IPHONE_8_0
         case UIInterfaceOrientationUnknown:
@@ -305,7 +311,7 @@
     BOOL isLandscape;
     
     if (self.handleLandscape) {
-        isLandscape = UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation);
+        isLandscape = UIInterfaceOrientationIsLandscape(self.currentOrientation);
     } else {
         isLandscape = NO;
     }

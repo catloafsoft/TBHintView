@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum
+typedef enum : NSUInteger
 {
     kHintViewOrientationTop,
     kHintViewOrientationBottom
@@ -16,7 +16,7 @@ typedef enum
 } TBHintViewOrientation;
 
 
-typedef enum
+typedef enum : NSUInteger
 {
     kHintViewPresentationFade,
     kHintViewPresentationDrop,
@@ -46,6 +46,8 @@ typedef enum
 @property (nonatomic,assign) BOOL handleLandscape;
 
 - (id)initWithDismissImage:(UIImage *)image;
+
+- (void)setInterfaceOrientation:(UIInterfaceOrientation)sbOrientation;
 
 -(void) show;
 -(void) show:(NSTimeInterval)duration;
