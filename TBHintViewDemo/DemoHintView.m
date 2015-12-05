@@ -129,7 +129,7 @@
 
 -(void) addPageWithTitle:(NSString*)title_ text:(NSString*)text_
 {
-    NSNumber* pageNumber = [NSNumber numberWithInt:self.pageContent.count];
+    NSNumber* pageNumber = @(self.pageContent.count);
     
     [self.pageContent setObject:text_ forKey:pageNumber];
     [self.pageTitles setObject:title_ forKey:pageNumber];
@@ -138,7 +138,7 @@
 
 -(void) addPageWithTitle:(NSString*)title_ image:(UIImage*)image_
 {
-    NSNumber* pageNumber = [NSNumber numberWithInt:self.pageContent.count];
+    NSNumber* pageNumber = @(self.pageContent.count);
     
     [self.pageContent setObject:image_ forKey:pageNumber];
     [self.pageTitles setObject:title_ forKey:pageNumber];
@@ -147,7 +147,7 @@
 
 -(void) addPageWithText:(NSString*)text
 {
-    NSNumber* pageNumber = [NSNumber numberWithInt:self.pageContent.count];
+    NSNumber* pageNumber = @(self.pageContent.count);
     
     [self.pageContent setObject:text forKey:pageNumber];
 }
@@ -155,7 +155,7 @@
 
 -(void) addPageWithImage:(UIImage*)image
 {
-    NSNumber* pageNumber = [NSNumber numberWithInt:self.pageContent.count];
+    NSNumber* pageNumber = @(self.pageContent.count);
     
     [self.pageContent setObject:image forKey:pageNumber];
 }
@@ -163,7 +163,7 @@
 
 -(void) addPageWithtitle:(NSString*)title_ text:(NSString*)text buttonText:(NSString*)buttonText buttonAction:(DemoHintViewBlock)buttonAction
 {
-    NSNumber* pageNumber = [NSNumber numberWithInt:self.pageContent.count];
+    NSNumber* pageNumber = @(self.pageContent.count);
     
     [self.pageTitles setObject:title_ forKey:pageNumber];
     
@@ -185,7 +185,7 @@
     customHintViewInfo.buttonText = buttonText;
     customHintViewInfo.buttonAction = buttonAction;
     
-    NSNumber* pageNumber = [NSNumber numberWithInt:self.pageContent.count];
+    NSNumber* pageNumber = @(self.pageContent.count);
     [self.pageContent setObject:customHintViewInfo forKey:pageNumber];
 }
 
@@ -287,13 +287,13 @@
         return self.title;
     }
     
-    return [self.pageTitles objectForKey:[NSNumber numberWithInt:page]];
+    return self.pageTitles[@(page)];
 }
 
 
 -(NSString *)textForPage:(NSUInteger)page hintView:(TBHintView *)hintView
 {
-    id content = [self.pageContent objectForKey:[NSNumber numberWithInt:page]];
+    id content = self.pageContent[@(page)];
     
     if( !content || ![content isKindOfClass:[NSString class]] )
     {
@@ -306,7 +306,7 @@
 
 -(UIImage *)imageForPage:(NSUInteger)page hintView:(TBHintView *)hintView
 {
-    id content = [self.pageContent objectForKey:[NSNumber numberWithInt:page]];
+    id content = self.pageContent[@(page)];
     
     if( !content || ![content isKindOfClass:[UIImage class]] )
     {
@@ -319,7 +319,7 @@
 
 -(UIView *)viewForPage:(NSUInteger)page hintView:(TBHintView *)hintView_
 {
-    id content = [self.pageContent objectForKey:[NSNumber numberWithInt:page]];
+    id content = self.pageContent[@(page)];
     
     if( !content || ![content isKindOfClass:[CustomHintViewInfo class]] )
     {
@@ -340,7 +340,7 @@
     labelText.font = [UIFont systemFontOfSize:15.0f];
     labelText.text = customHintViewInfo.text;
     labelText.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    labelText.textAlignment = UITextAlignmentCenter;
+    labelText.textAlignment = NSTextAlignmentCenter;
 
     UIButton* buttonAction = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     buttonAction.frame = CGRectMake(13, 66, 173, 34);
@@ -360,7 +360,7 @@
 {
     UIButton* button = (UIButton*)sender;
     
-    CustomHintViewInfo* customHintViewInfo = [self.pageContent objectForKey:[NSNumber numberWithInt:button.tag]];
+    CustomHintViewInfo* customHintViewInfo = self.pageContent[@(button.tag)];
     
     customHintViewInfo.buttonAction();
 }
@@ -394,7 +394,7 @@
 
 +(void) setHasDismissedHint:(NSUInteger)hintType
 {
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:[NSString stringWithFormat:@"hints.seen.%d", hintType]];
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:[NSString stringWithFormat:@"hints.seen.%@", @(hintType)]];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -406,7 +406,7 @@
         return NO;
     }
     
-    return ![[NSUserDefaults standardUserDefaults] boolForKey:[NSString stringWithFormat:@"hints.seen.%d", hintType]];
+    return ![[NSUserDefaults standardUserDefaults] boolForKey:[NSString stringWithFormat:@"hints.seen.%@", @(hintType)]];
 }
 
 
@@ -414,7 +414,7 @@
 {
     for( NSUInteger hintID = kHintID_First; hintID < kHintID_Last; hintID++ ) 
     {
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:[NSString stringWithFormat:@"hints.seen.%d", hintID]];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:[NSString stringWithFormat:@"hints.seen.%@", @(hintID)]];
     }
 }
 

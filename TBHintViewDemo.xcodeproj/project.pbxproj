@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA1A45281C12F0EC00C18134 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA1A45271C12F0EC00C18134 /* Default-568h@2x.png */; };
 		EA4E91D4154A2E610055918D /* libTBHintView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EA4E91D1154A2E3E0055918D /* libTBHintView.a */; };
 		EA4E91E1154B452B0055918D /* ViewController-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA4E91DF154B452B0055918D /* ViewController-iPad.xib */; };
 		F85282941533531200F441FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F85282931533531200F441FE /* UIKit.framework */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EA1A45271C12F0EC00C18134 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EA4E91C9154A2E3E0055918D /* TBHintView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TBHintView.xcodeproj; path = TBHintView/TBHintView.xcodeproj; sourceTree = "<group>"; };
 		EA4E91E0154B452B0055918D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "en.lproj/ViewController-iPad.xib"; sourceTree = "<group>"; };
 		F852828F1533531200F441FE /* TBHintViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TBHintViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +96,7 @@
 		F85282841533531200F441FE = {
 			isa = PBXGroup;
 			children = (
+				EA1A45271C12F0EC00C18134 /* Default-568h@2x.png */,
 				EA4E91C9154A2E3E0055918D /* TBHintView.xcodeproj */,
 				F85282991533531200F441FE /* TBHintViewDemo */,
 				F85282921533531200F441FE /* Frameworks */,
@@ -178,7 +181,7 @@
 		F85282861533531200F441FE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "touchbee Solutions";
 			};
 			buildConfigurationList = F85282891533531200F441FE /* Build configuration list for PBXProject "TBHintViewDemo" */;
@@ -224,6 +227,7 @@
 				F852831E1533604500F441FE /* pattern2.jpg in Resources */,
 				F85283281533648100F441FE /* InfoPlist.strings in Resources */,
 				F85283291533648100F441FE /* ViewController.xib in Resources */,
+				EA1A45281C12F0EC00C18134 /* Default-568h@2x.png in Resources */,
 				F85283311533675A00F441FE /* touchbee_small.png in Resources */,
 				EA4E91E1154B452B0055918D /* ViewController-iPad.xib in Resources */,
 			);
@@ -285,11 +289,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -297,10 +310,14 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "$(TBHINTVIEW_SRC)/TBHintViewLib";
 			};
@@ -310,13 +327,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -333,8 +361,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TBHintViewDemo/TBHintViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "TBHintViewDemo/TBHintViewDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.touchbee.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -348,8 +377,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TBHintViewDemo/TBHintViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "TBHintViewDemo/TBHintViewDemo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.touchbee.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
