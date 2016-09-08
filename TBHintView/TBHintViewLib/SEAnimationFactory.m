@@ -9,7 +9,7 @@
 #import "SEAnimationFactory.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface SEAnimationFactory()
+@interface SEAnimationFactory() <CAAnimationDelegate>
 
 -(CAAnimation*) groupWithAnimations:(NSArray*)animations duration:(NSTimeInterval)duration view:(UIView*)view name:(NSString*)name type:(NSString*)type;
 -(CGPoint) outOfBoundsCenterForView:(UIView*)view direction:(SEAnimationDirection)direction boundaryFrame:(CGRect)boundaryFrame;

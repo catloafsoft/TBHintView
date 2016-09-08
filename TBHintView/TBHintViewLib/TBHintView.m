@@ -60,7 +60,7 @@
         self.presentationAnimation = kHintViewPresentationSlide;
         self.orientation = kHintViewOrientationBottom;
         self.dismissImage = image;
-        self.titleAlignment = UITextAlignmentLeft;
+        self.titleAlignment = NSTextAlignmentLeft;
         self.titleColor = [UIColor whiteColor];
         self.titleFont = [UIFont boldSystemFontOfSize:17.0];
         self.currentOrientation = [UIApplication sharedApplication].statusBarOrientation;
@@ -602,7 +602,7 @@
                                                                            ];
             
             labelText.numberOfLines = 0;
-            labelText.textAlignment = UITextAlignmentCenter;
+            labelText.textAlignment = NSTextAlignmentCenter;
             labelText.text = textContent;
             labelText.textColor = self.textColor;
             labelText.backgroundColor = [UIColor clearColor];
