@@ -23,7 +23,7 @@ typedef enum
 
 @interface DemoHintView : NSObject<TBHintViewDataSource, TBHintViewDelegate>
 
-typedef void (^DemoHintViewBlock)();
+typedef void (^DemoHintViewBlock)(void);
 
 @property (nonatomic,copy) NSString* title;
 @property (nonatomic) UIImage* icon;
