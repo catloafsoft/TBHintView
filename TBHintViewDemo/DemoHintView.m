@@ -67,9 +67,9 @@
     
     basicHintView.icon = [UIImage imageNamed:@"90-lifebuoy"];
     
+    __weak DemoHintView *hintView = basicHintView;
     basicHintView.customDismissedBlock = ^{
-              
-        [DemoHintView setHasDismissedHint:basicHintView.hintID];
+        [DemoHintView setHasDismissedHint:hintView.hintID];
     };
     
     return basicHintView;
