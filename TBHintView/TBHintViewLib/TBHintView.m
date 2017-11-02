@@ -263,9 +263,7 @@
 {
     switch (self.currentOrientation) {
         case UIInterfaceOrientationPortrait:
-#ifdef __IPHONE_8_0
         case UIInterfaceOrientationUnknown:
-#endif
             self.transform = CGAffineTransformIdentity;
             break;
         case UIInterfaceOrientationPortraitUpsideDown:
@@ -323,6 +321,16 @@
         width = parentFrame.size.width * spanWidthWeight;
         margin = ( parentFrame.size.width - width ) / 2.0f;
     }
+    CGFloat safeMargin = 0.0f;
+    
+    if (@available(iOS 11.0, *)) {
+        if( self.orientation == kHintViewOrientationBottom ) {
+            safeMargin = self.superview.safeAreaInsets.bottom;
+        } else {
+            safeMargin = self.superview.safeAreaInsets.top;
+        }
+    }
+    
     if (self.handleLandscape)
         [self setRotation];
     
@@ -330,12 +338,12 @@
     {
         if (isLandscape) {
             self.frame = CGRectMake(10,
-                                    margin,
+                                    margin - safeMargin,
                                     height,
                                     width);
         } else {
             self.frame = CGRectMake(margin,
-                                    parentFrame.origin.y + parentFrame.size.height - height + 10,
+                                    parentFrame.origin.y + parentFrame.size.height - height + 10 - safeMargin,
                                     width,
                                     height);
         }
@@ -369,12 +377,13 @@
     else
     {
         if (isLandscape) {
-            self.frame = CGRectMake(parentFrame.size.width - height - 10, margin,
+            self.frame = CGRectMake(parentFrame.size.width - height - 10,
+                                    margin + safeMargin,
                                     height,
                                     width);
         } else {
-            self.frame = CGRectMake( margin,
-                                    -10,
+            self.frame = CGRectMake(margin,
+                                    safeMargin - 10,
                                     width,
                                     height );
         }
