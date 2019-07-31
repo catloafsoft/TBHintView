@@ -140,11 +140,11 @@
 			};
 			buildConfigurationList = EA4E91A3154A2A170055918D /* Build configuration list for PBXProject "TBHintView" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
+				Base,
 			);
 			mainGroup = EA4E919E154A2A170055918D;
 			productRefGroup = EA4E91AA154A2A170055918D /* Products */;
