@@ -135,7 +135,7 @@
 		EA4E91A0154A2A170055918D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Catloaf Software, LLC";
 			};
 			buildConfigurationList = EA4E91A3154A2A170055918D /* Build configuration list for PBXProject "TBHintView" */;

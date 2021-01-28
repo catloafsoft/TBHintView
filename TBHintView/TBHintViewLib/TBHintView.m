@@ -61,9 +61,9 @@
         self.orientation = kHintViewOrientationBottom;
         self.dismissImage = image;
         self.titleAlignment = NSTextAlignmentLeft;
-        self.titleColor = [UIColor whiteColor];
+        self.titleColor = UIColor.whiteColor;
         self.titleFont = [UIFont boldSystemFontOfSize:17.0];
-        self.currentOrientation = [UIApplication sharedApplication].statusBarOrientation;
+        self.currentOrientation = UIApplication.sharedApplication.statusBarOrientation;
     }
     
     return self;
